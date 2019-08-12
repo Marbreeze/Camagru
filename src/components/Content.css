@@ -1,15 +1,13 @@
 .body{
     background:lightgray;
-    min-height: 100vh;
+    height: 100%;
     display: flex;
+    flex:2;
     flex-direction: column;
+    position:fixed;
 }
 
 .content {
-    min-height:700vh;
-    flex:1 0 auto;
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: auto;
-    height: 20px;   
+    height:100%;
+    padding-top:60px;
 }

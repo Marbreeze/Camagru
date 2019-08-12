@@ -1,54 +1,93 @@
 .footer_primary{
-    position: relative;
+    position:absolute;
     background-color:lightslategray;
-    /* display: flex; */
-    flex:1;
-    max-height: 7vh;
-    bottom: 0px;
-
-    
+    left:0;
+    right:0;
+    bottom:0;
+    padding-bottom:20px;
+    padding-top:0px;
+    height:100px;
+    z-index:150;  
 }
-.foot_container{
-    padding-bottom:60px;
-    align-items:center;
+
+.gg_hub {
+  color:white;
+  text-decoration:underline;
+  font-size:11px;
+  margin-left: 25px;
+  position:absolute;
+  top:69px;
+  left:7px;
+  justify-self: center;
+  font-style:sans-serif;
+}
+/* .foot_container{ */
+    /* padding-bottom:60px; */
+    /* align-items:center;
     padding:0;
     position:absolute;
-    
-}
+    left:0;
+    right:0;
+    z-index:150;
+   */
+
 /* .description{
     justify-content: center;
     text-align:center;
     color:white;
     text-align: center;
     padding:10px 10px 20px 10px;
-    position:absolute; 
-   
-  
-
+    position:absolute;
 } */
 .column has_txt_right{
-    position: absolute;
-
+    position:fixed;
+    block-size:200px;
+    min-width: 100%;
+  
 }
 
+.imprit{
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  color: #f0f0f0;
+  font-size: 10px;
+  text-align: center;
+}
+#text_content{
+  position: static;
+  margin-top: 20px;
+  font-size: 15px;
+  letter-spacing: 3.5px;
+  padding-left:14px;
+  padding-right:10px;
+  color:#f2f2f2;
+  text-align: center;
+}
+  
+/* .gg_hub {
+  color:white;
+  text-decoration:underline;
+  font-size:12px;
+  margin-left: 25px;
+  margin-top:70px; */
+
+
 .icon {
-    /* text-align: right;
-    justify-content: right; */
-    /* width: 1000px; */
-    grid-area: footer3;
-    
+    grid-area: footer3;  
 }
 
 .fa { 
     
-    padding: 10px;
-    font-size: 15px;
-    width: 15px;
+    padding: 7px;
+    font-size: 12px;
+    width: 8px;
     text-align:right;
     justify-content: right;
     text-decoration: none;
-    margin: 5px 2px;
-    
+    margin: 25px 2px 2px;
+    position:relative;
+    bottom: 0px;
   }
   
   .fa:hover {
@@ -61,20 +100,22 @@
     color: white;
     justify-self: end;
     float: right;
-    bottom: 0;  
+    right:10px;
+
+
   }
 
   .fa-twitter {
     background: #55ACEE;
     color: white;
-    /* margin-left: 3em; */
     float: right;
+    right:10px;
 
    
   }
   .fa-instagram {
     background:palevioletred;
     color: white;
-    /* margin-left: 6em; */
     float: right;
+    right:10px;
   }
