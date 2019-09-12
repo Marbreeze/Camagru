@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "server_launch": "cd ./api && npm start",
+    "client_launch": "cd ./client && npm start",
+    "start": "concurrently \"npm run server_launch\" \"npm run client_launch\""
+  }
+}
