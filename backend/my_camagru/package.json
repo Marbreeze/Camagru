@@ -1,7 +1,12 @@
 {
   "scripts": {
-    "server_launch": "cd ./api && npm start",
+    "server_launch": "cd ./api && npm run dev",
     "client_launch": "cd ./client && npm start",
     "start": "concurrently \"npm run server_launch\" \"npm run client_launch\""
+  },
+  "dependencies": {
+    "@hapi/joi": "^16.1.1",
+    "nodemon": "^1.19.2",
+    "passport": "^0.4.0"
   }
 }

@@ -6,10 +6,26 @@ var logger = require('morgan');
 var cors = require("cors");
 var mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//var usersRouter = require('./routes/users');
 var testAPIRouter = require("./routes/testAPI");
 var app = express();
+var externalRoutes = require('./routes/externalRoutes');
 var secrets = require('./config');
+//rsconst passport = require('passport');
+
+console.log({secrets});
+console.log(secrets.MongoDBLink);
+
+//Connection to the db use connect
+mongoose.connect(
+	secrets.MongoDBLink,
+  { useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+);
+const db = mongoose.connection.useDb('test');
+db.once("open", () => console.log('connected to the database'));
+db.on("error", console.log.bind(console, "MongoDb connection error"));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -17,26 +33,14 @@ app.set('view engine', 'pug');
 app.use(cors());
 app.use(logger('dev'));
 
-
-// Connection to the db
-mongoose.connect(
-	secrets.MongoDBLInk,
-	{ useNewUrlParser: true }
-);
-
-const db = mongoose.connection;
-
-db.once("open", () => console.log('connected to the database'));
-db.on("error", console.log.bind(console, "MongoDb connection error"));
-
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use("/testAPI", testAPIRouter);
+app.use('/externalRoutes', externalRoutes);
+app.use('/testAPI', testAPIRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -51,7 +55,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   // res.json({err});
-  res.render('error');
+ res.render('error');
 });
 
 module.exports = app;
